@@ -1,4 +1,4 @@
-# **Plano de Experimento – Scoping e Planejamento **
+# Plano de Experimento – Scoping e Planejamento
 
 # **1. Identificação Básica**
 
