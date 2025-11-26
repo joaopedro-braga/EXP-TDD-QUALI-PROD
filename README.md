@@ -18,6 +18,7 @@ EXP-TDD-QUALI-PROD-2025
 | v1.1   | 25/11/2025 | Versão preliminar (Inclusão do Escopo, Objetivo, Stakeholders/Impacto, Riscos de alto nível, Premissas e Critérios de Sucesso)             |
 | v1.2   | 25/11/2025 | Versão preliminar (Inclusão do Modelo conceitual e hipóteses; Variáveis, fatores, tratamentos e objetos de estudo; Desenho experimental)   |
 | v1.3   | 26/11/2025 | Versão preliminar (Inclusão da População, sujeitos e amostragem; Instrumentação e protocolo operacional; Plano de análise de dados (pré-execução))   |
+| v1.4   | 26/11/2025 | Versão preliminar (Inclusão da Avaliação de validade (ameaças e mitigação))   |
 
 
 ## **1.4 Datas**
