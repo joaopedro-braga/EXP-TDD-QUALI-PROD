@@ -14,12 +14,12 @@ EXP-TDD-QUALI-PROD-2025
 
 | Versão | Data       | Descrição               |
 | ------ | ---------- | ----------------------- |
-| v1.0   | 20/11/2025 | Versão inicial do plano |
+| v1.0   | 20/11/2025 | Versão inicial do plano (Scoping e Contexto) |
 
 ## **1.4 Datas**
 
 * Data de criação: **20/11/2025**
-* Última atualização: **20/11/2025**
+* Última atualização: **25/11/2025**
 
 ## **1.5 Autores**
 
@@ -38,46 +38,54 @@ Tema: Avaliando o Impacto da Técnica Test-Driven Development (TDD) na Qualidade
 
 ---
 
+
 # **2. Contexto e Problema**
 
 ## **2.1 Descrição do Problema / Oportunidade**
-
-Apesar de amplamente discutido na literatura, o real impacto do Test-Driven Development (TDD) na qualidade e produtividade ainda apresenta resultados divergentes. Alguns estudos apontam que TDD reduz defeitos e melhora o design do software, enquanto outros sugerem impacto negativo ou neutro na produtividade — especialmente em ambientes com desenvolvedores iniciantes.
-No contexto educacional, essa lacuna é ainda maior, pois estudantes geralmente apresentam menor familiaridade com TDD, o que pode influenciar o desempenho. Assim, torna-se relevante investigar os efeitos da técnica em mini-projetos acadêmicos controlados.
+Apesar de amplamente discutido na literatura, o real impacto do *Test-Driven Development* (TDD) apresenta resultados divergentes. Enquanto defensores alegam melhoria na qualidade interna e externa do software, estudos empíricos apontam possíveis reduções na produtividade, especialmente em ambientes com desenvolvedores iniciantes (curva de aprendizado).
+No contexto educacional e de formação de novos engenheiros, essa lacuna é crítica: sem evidências claras, é difícil justificar o *trade-off* do esforço inicial do TDD. Assim, torna-se relevante investigar os efeitos da técnica em **problemas de tamanho controlado ("toy problems")** para isolar variáveis de confusão.
 
 ## **2.2 Contexto Organizacional e Técnico**
-
-* Ambiente: laboratório acadêmico controlado
-* Participantes: estudantes de Engenharia de Software
-* Tecnologias envolvidas: Java, JUnit 5, VSCode
-* Processo: mini-projetos individuais com requisitos definidos e escopo limitado
-* Ferramentas de apoio: Git, GitHub, planilhas de coleta de métricas, JUnit
-* Treinamento: breve capacitação inicial em TDD para reduzir impacto da curva de aprendizado
+O experimento será conduzido seguindo a classificação de contexto de experimentação (Basili et al./Wohlin):
+*   **Ambiente:** *Off-line* (laboratório acadêmico controlado, sem pressão de produção industrial).
+*   **Participantes:** *Students* (estudantes de graduação em Engenharia de Software), caracterizando desenvolvedores novatos.
+*   **Problema:** *Toy problem* (mini-projetos individuais com escopo fechado para viabilizar a execução em tempo limitado).
+*   **Especificidade:** *Specific* (focado na linguagem Java e framework JUnit 5).
+*   **Processo e Ferramentas:** Uso de IDE VSCode, controle de versão via Git/GitHub e coleta manual de tempo. Haverá um treinamento de nivelamento (instrumentação) para mitigar a falta de conhecimento prévio.
 
 ## **2.3 Trabalhos e Evidências Prévias**
-
-* **Beck (2003)** – *Test-Driven Development: By Example*: descreve fundamentos e sugere melhoria de design e redução de defeitos.
-* **Nagappan, Maximilien, Bhat & Williams (2008)** – estudo industrial indicando aumento de qualidade, porém redução de produtividade em equipes da Microsoft.
-* **Rafique & Mišić (2013)** – meta-análise (*IEEE TSE*) mostrou efeitos positivos, porém pequenos, na qualidade e impacto incerto na produtividade.
-* Experimentos anteriores em sala indicam forte variabilidade no desempenho entre estudantes, reforçando necessidade de replicação.
+*   **Beck (2003) – *Test-Driven Development: By Example*:** Obra seminal que estabelece o ciclo *Red-Green-Refactor* e sugere melhoria no design (atributo interno) e redução de defeitos (atributo externo).
+*   **Nagappan et al. (2008):** Estudo de caso industrial na Microsoft e IBM indicando aumento significativo de qualidade (redução de 40-90% em defeitos), porém com aumento de 15-35% no tempo de desenvolvimento (redução de produtividade).
+*   **Rafique & Mišić (2013):** Meta-análise indicando que os efeitos do TDD na qualidade são mais fortes em projetos pequenos e acadêmicos do que em industriais, mas a produtividade tende a cair.
 
 ## **2.4 Referencial Teórico e Empírico**
+O estudo baseia-se na comparação entre o desenvolvimento *Test-Last* (tradicional) e *Test-First* (TDD).
 
-* TDD é uma prática ágil baseada no ciclo: **escrever o teste → implementar o código → refatorar**.
-* Métricas de qualidade:
+**Atributos e Métricas Selecionadas (Baseado em ISO/IEC 25010 e GQM):**
 
-  * número de defeitos encontrados por revisão ou testes funcionais
-  * cobertura de testes (line/branch)
-  * severidade dos defeitos
-* Métricas de produtividade:
+1.  **Atributos Internos (Produto):**
+    *   *Cobertura de Testes:* Percentual de *statements* cobertos (medida de qualidade do teste, não necessariamente do software).
+    *   *Tamanho:* Medido em LOC (*Lines of Code*) da solução (excluindo testes e comentários).
 
-  * tempo total para completar as tarefas
-  * taxa de produção (LOC/hora), usada apenas como medida complementar
-* Hipóteses clássicas fundamentadas na literatura:
+2.  **Atributos Externos (Qualidade em Uso):**
+    *   *Confiabilidade Funcional:* Mensurada pela **Densidade de Defeitos** (Número de falhas em testes de aceitação / Tamanho).
 
-  * **H1:** TDD melhora a qualidade do software.
-  * **H2:** O impacto de TDD na produtividade é incerto e pode ser negativo em desenvolvedores iniciantes.
-* Considerações metodológicas:
+3.  **Atributos de Recurso/Processo:**
+    *   *Esforço:* Tempo total (em minutos) para completar a tarefa.
+    *   *Produtividade:* Calculada como uma medida derivada: `Produtividade = Tamanho / Esforço`.
+
+**Hipóteses Preliminares:**
+*   A técnica TDD aumenta a confiabilidade (reduz a densidade de defeitos) em comparação à abordagem tradicional (**H1**).
+*   A técnica TDD reduz a produtividade (LOC/hora) de desenvolvedores novatos devido à sobrecarga cognitiva da criação dos testes (**H2**).
+   
+**Considerações metodológicas:**
 
   * Defeitos serão contabilizados por meio de revisão estruturada e execução de testes independentes.
   * Cobertura de testes será utilizada como métrica complementar de qualidade, não como substituto da detecção de defeitos.
+
+
+
+
+
+
+
