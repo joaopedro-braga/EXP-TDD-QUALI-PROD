@@ -16,6 +16,7 @@ EXP-TDD-QUALI-PROD-2025
 | ------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | v1.0   | 20/11/2025 | Versão inicial do plano (Identificação Básica, Contexto e Problema)                                                                        |
 | v1.1   | 25/11/2025 | Versão preliminar (Inclusão do Escopo, Objetivo, Stakeholders/Impacto, Riscos de alto nível, Premissas e Critérios de Sucesso)             |
+| v1.2   | 25/11/2025 | Versão preliminar (Inclusão do Modelo conceitual e hipóteses; Variáveis, fatores, tratamentos e objetos de estudo; Desenho experimental)             |
 
 
 ## **1.4 Datas**
@@ -87,8 +88,6 @@ O estudo baseia-se na comparação entre o desenvolvimento *Test-Last* (tradicio
 
 
 ---
-
-# Plano de Experimento – Entrega 2
 
 # **3. Objetivos e Questões (Goal / Question / Metric)**
 
@@ -215,5 +214,109 @@ A tabela abaixo descreve todas as métricas identificadas no GQM, suas unidades 
 *   Se houver falha generalizada de infraestrutura (internet ou repositório) que impeça o acesso ao enunciado ou o envio da solução.
 
 
+---
 
+# **7. Modelo Conceitual e Hipóteses**
 
+## **7.1 Modelo Conceitual do Experimento**
+O modelo conceitual baseia-se na premissa de que a técnica de desenvolvimento (Fator) influencia diretamente as variáveis de resposta relacionadas à qualidade e produtividade.
+
+A teoria sugere que o ciclo *Red-Green-Refactor* do TDD impõe uma carga cognitiva inicial maior e exige a escrita de mais linhas de código (testes), o que tende a reduzir a produtividade imediata (velocidade de escrita). Por outro lado, essa abordagem força a análise de casos de borda antes da implementação e promove a refatoração contínua, o que teoricamente reduz a densidade de defeitos e melhora a estrutura interna do código.
+
+**Esquema Causal:**
+*   **Variável Independente (Causa):** Técnica de Desenvolvimento (TDD vs. Tradicional).
+*   **Variáveis Dependentes (Efeitos):**
+    *   *Qualidade Externa:* Densidade de Defeitos.
+    *   *Qualidade Interna:* Complexidade Ciclomática.
+    *   *Produtividade:* LOC/Hora.
+    *   *Aspecto Humano:* Dificuldade Percebida.
+
+## **7.2 Hipóteses Formais**
+
+Para garantir a cobertura dos objetivos definidos no GQM, foram formalizadas hipóteses para cada uma das principais dimensões de análise (Qualidade Externa, Qualidade Interna, Produtividade e Percepção).
+
+**Hipótese 1: Qualidade Externa (Ref. O1 do GQM)**
+*Investiga se o TDD reduz a incidência de erros.*
+*   **H0₁ (Nula):** Não há diferença significativa na densidade de defeitos entre o código desenvolvido com TDD e o desenvolvido com a abordagem tradicional.
+    *   $\mu_{TDD\_Defeitos} = \mu_{Trad\_Defeitos}$
+*   **H1₁ (Alternativa):** A densidade de defeitos no código desenvolvido com TDD é menor do que na abordagem tradicional.
+    *   $\mu_{TDD\_Defeitos} < \mu_{Trad\_Defeitos}$
+
+**Hipótese 2: Qualidade Interna (Ref. O2 do GQM)**
+*Investiga se o TDD resulta em código menos complexo (mais simples).*
+*   **H0₂ (Nula):** Não há diferença significativa na Complexidade Ciclomática média dos métodos entre as duas técnicas.
+    *   $\mu_{TDD\_Complexidade} = \mu_{Trad\_Complexidade}$
+*   **H1₂ (Alternativa):** A Complexidade Ciclomática no código desenvolvido com TDD é menor do que na abordagem tradicional.
+    *   $\mu_{TDD\_Complexidade} < \mu_{Trad\_Complexidade}$
+
+**Hipótese 3: Produtividade (Ref. O3 do GQM)**
+*Investiga o impacto na velocidade de desenvolvimento.*
+*   **H0₃ (Nula):** Não há diferença significativa na produtividade (LOC/hora) entre desenvolvedores usando TDD e abordagem tradicional.
+    *   $\mu_{TDD\_Prod} = \mu_{Trad\_Prod}$
+*   **H1₃ (Alternativa):** A produtividade dos desenvolvedores usando TDD é menor do que a dos que usam a abordagem tradicional (devido ao esforço extra de escrever testes).
+    *   $\mu_{TDD\_Prod} < \mu_{Trad\_Prod}$
+
+**Hipótese 4: Percepção do Desenvolvedor (Ref. O4 do GQM)**
+*Investiga a dificuldade sentida pelos alunos.*
+*   **H0₄ (Nula):** Não há diferença na percepção de dificuldade entre usar TDD ou a abordagem tradicional.
+    *   $\mu_{TDD\_Dificuldade} = \mu_{Trad\_Dificuldade}$
+*   **H1₄ (Alternativa):** A percepção de dificuldade é maior no grupo TDD (devido à curva de aprendizado para novatos).
+    *   $\mu_{TDD\_Dificuldade} > \mu_{Trad\_Dificuldade}$
+
+## **7.3 Nível de Significância**
+Será adotado um nível de significância **$\alpha = 0.05$** (5%) para todos os testes de hipótese. Isso estabelece o limite para rejeição da hipótese nula.
+
+---
+
+# **8. Variáveis, Fatores, Tratamentos e Objetos de Estudo**
+
+## **8.1 Objetos de Estudo**
+O objeto de estudo será a tarefa de programação que os participantes deverão resolver. Será utilizado um problema algorítmico de escopo fechado (ex: "Conversor de Números Romanos"), que permite isolar a técnica de codificação de outras variáveis como levantamento de requisitos.
+
+## **8.2 Sujeitos / Participantes**
+Os sujeitos são estudantes de graduação em Engenharia de Software. Eles representam uma população de desenvolvedores em formação, com conhecimento prévio em Java, mas pouca experiência prática em processos industriais.
+
+## **8.3 Tabela de Variáveis**
+
+A tabela abaixo descreve todas as variáveis envolvidas no experimento, mapeadas para as hipóteses acima.
+
+| Variável | Tipo | Escala | Descrição | Unidade |
+| :--- | :--- | :--- | :--- | :--- |
+| **Técnica de Desenvolvimento** | Independente (Fator) | Nominal | A abordagem utilizada para construir o software. | Categoria (TDD/Trad) |
+| **Densidade de Defeitos** | Dependente (H1) | Razão | Quantidade de falhas funcionais normalizada pelo tamanho do código. | Falhas/KLOC |
+| **Complexidade Ciclomática** | Dependente (H2) | Razão | Medida de caminhos independentes no código (McCabe). | Inteiro |
+| **Produtividade** | Dependente (H3) | Razão | Velocidade de produção de código funcional entregue. | LOC/Hora |
+| **Dificuldade Percebida** | Dependente (H4) | Ordinal | Autoavaliação da dificuldade da tarefa. | Escala Likert (1-5) |
+| **Experiência em Java** | Controle | Ordinal | Nível declarado de conhecimento na linguagem. | Escala Likert (1-5) |
+| **Ambiente de Desenv.** | Controle | Nominal | IDE, versão do JDK e Sistema Operacional utilizados. | N/A |
+
+## **8.4 Fatores e Tratamentos**
+
+O experimento manipula um único fator com dois níveis (tratamentos).
+
+| Fator | Tratamento (Nível) | Descrição Operacional |
+| :--- | :--- | :--- |
+| **Técnica de Desenvolvimento** | **T1: TDD (Test-Driven Development)** | O participante deve escrever o teste unitário antes de escrever o código de produção (*Test-First*), seguindo ciclos curtos de iteração. |
+| | **T2: Tradicional (Test-Last)** | O participante escreve o código de produção primeiro e, opcionalmente, escreve testes ao final ou realiza testes manuais. |
+
+---
+
+# **9. Desenho Experimental**
+
+## **9.1 Tipo de Desenho**
+Será utilizado um desenho de **Um Fator com Dois Tratamentos** (*One factor with two treatments*), organizado de forma **Completamente Randomizada**.
+Este design é adequado para comparar as médias das variáveis dependentes entre dois grupos distintos (Grupo TDD vs. Grupo Controle), simplificando a execução em sala de aula e evitando o efeito de aprendizado que ocorreria se o mesmo aluno resolvesse o problema duas vezes.
+
+## **9.2 Randomização e Alocação**
+A alocação dos sujeitos aos tratamentos será aleatória para distribuir homogeneamente as variações individuais (como talento ou experiência prévia).
+1.  Identificação de todos os participantes elegíveis.
+2.  Uso de um gerador de números aleatórios para atribuir cada participante ao Grupo A ou Grupo B.
+3.  Verificação pós-alocação para garantir que não houve concentração acidental de alunos experientes em um único grupo (se houver, realizar novo sorteio).
+
+## **9.3 Balanceamento**
+O experimento buscará ser balanceado, visando ter o mesmo número de observações em cada tratamento ($n_A = n_B$). O balanceamento aumenta a robustez do teste estatístico contra desvios de normalidade e homogeneidade de variância.
+
+## **9.4 Número de Grupos e Sessões**
+*   **Grupos:** 2 Grupos (Entre-Sujeitos).
+*   **Sessões:** 1 Sessão única.
+    *   Todos os participantes executarão o experimento simultaneamente no mesmo laboratório para garantir controle sobre variáveis ambientais (tempo disponível, instruções fornecidas, ruído, temperatura).
