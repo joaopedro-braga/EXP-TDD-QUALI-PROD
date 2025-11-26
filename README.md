@@ -413,3 +413,58 @@ Para validar as quatro hipóteses definidas na etapa anterior, será seguido o f
 
 ## **12.4 Análise Qualitativa**
 As respostas dos questionários abertos sobre a dificuldade da técnica serão analisadas por meio de codificação temática para identificar padrões (ex: "dificuldade em pensar no teste primeiro", "sensação de segurança ao refatorar"), servindo para explicar os resultados quantitativos de H4.
+
+---
+
+# **13. Avaliação de Validade (Ameaças e Mitigação)**
+
+A validade de um experimento determina o quanto podemos confiar nos seus resultados e o quanto podemos generalizá-los. Abaixo, são analisadas as quatro principais categorias de validade, identificando ameaças específicas ao contexto deste estudo e as respectivas ações de mitigação planejadas.
+
+## **13.1 Validade de Conclusão**
+Refere-se à capacidade de tirar conclusões estatísticas corretas sobre a relação entre o tratamento e o resultado.
+
+| Ameaça | Descrição no Contexto | Estratégia de Mitigação |
+| :--- | :--- | :--- |
+| **Baixo Poder Estatístico** | O tamanho da amostra (~24 alunos) pode ser insuficiente para detectar diferenças pequenas entre os grupos, levando a um Erro Tipo II (falso negativo). | Definir um nível de significância padrão ($\alpha=0.05$) e utilizar testes não-paramétricos (Mann-Whitney) caso a normalidade não seja atendida, pois são mais robustos para amostras pequenas. Aceitar conclusões apenas para tamanhos de efeito médios/grandes. |
+| **Violação de Suposições** | Aplicar testes paramétricos (Teste t) em dados que não seguem distribuição normal (comum em métricas de software). | Realizar teste de normalidade (Shapiro-Wilk) antes da análise. Se a normalidade for violada, migrar automaticamente para testes não-paramétricos. |
+| **Confiabilidade das Medidas** | Erros na coleta manual do tempo ou inconsistência na contagem de defeitos. | Automatizar a coleta de defeitos via suíte de testes (gabarito). Para o tempo, cruzar o registro manual do aluno com o *timestamp* do primeiro e último commit no Git. |
+
+## **13.2 Validade Interna**
+Refere-se à certeza de que foi o tratamento (TDD), e não outro fator, que causou o efeito observado.
+
+| Ameaça | Descrição no Contexto | Estratégia de Mitigação |
+| :--- | :--- | :--- |
+| **Seleção (Selection)** | Alunos mais habilidosos podem acabar concentrados em um único grupo, distorcendo o resultado. | Utilizar alocação aleatória (randomização) para distribuir os níveis de habilidade. Verificar *a posteriori* se os grupos estão equilibrados usando os dados do questionário de experiência. |
+| **Maturação (Maturation)** | Os alunos podem aprender a resolver o problema durante o experimento ou ficar cansados. | O experimento é curto (uma sessão), minimizando a maturação. A tarefa é inédita para evitar aprendizado prévio específico. |
+| **Difusão do Tratamento** | Alunos do grupo TDD podem conversar com o grupo Tradicional e passar dicas da solução ou da técnica. | Realizar o experimento em sessão única e simultânea, com supervisão em sala para evitar comunicação entre os participantes. |
+| **Desistência (Mortality)** | Alunos com dificuldade técnica podem desistir, deixando apenas os "melhores" na análise final. | Monitorar a sala durante a execução e oferecer suporte rápido para problemas de ambiente (IDE/Java), evitando desistência por frustração técnica (sem ajudar na lógica). |
+
+## **13.3 Validade de Construto**
+Refere-se à adequação das métricas escolhidas para representar os conceitos teóricos (Qualidade e Produtividade).
+
+| Ameaça | Descrição no Contexto | Estratégia de Mitigação |
+| :--- | :--- | :--- |
+| **Mono-operação** | Usar apenas um único problema ("Toy Problem") pode não refletir a complexidade real de desenvolvimento de software. | Reconhecer essa limitação explicitamente. Escolher um problema (Kata) que envolva lógica não trivial para exigir raciocínio, e não apenas codificação mecânica. |
+| **Viés de Medição** | Usar "Produtividade = LOC/Hora" pode premiar código verborrágico em vez de código eficiente. | Combinar a métrica de produtividade com a de qualidade (Defeitos). Código muito rápido mas cheio de bugs será penalizado na análise conjunta. |
+| **Efeito do Experimentador** | Os alunos podem tentar "agradar" o professor usando TDD mesmo estando no grupo controle, ou forjar os testes depois. | O histórico de *commits* será analisado. Se um aluno do grupo TDD fizer *commits* gigantes de código sem testes prévios, será desclassificado ou realocado na análise. |
+
+## **13.4 Validade Externa**
+Refere-se à capacidade de generalizar os resultados para fora do experimento (para a indústria).
+
+| Ameaça | Descrição no Contexto | Estratégia de Mitigação |
+| :--- | :--- | :--- |
+| **Interação Seleção-Tratamento** | Os sujeitos são estudantes, que podem não representar o comportamento de profissionais seniores (*Students vs Professionals*). | Limitar a generalização dos resultados para o contexto de "formação e treinamento de novos engenheiros" e "equipes júnior", evitando extrapolar para contextos críticos ou seniores. |
+| **Interação Cenário-Tratamento** | O problema é pequeno e feito em laboratório (*Toy Problem*), diferente de sistemas reais com legado e dívida técnica. | Argumentar que o estudo foca na **mecânica da técnica** e no processo cognitivo inicial, que são melhor isolados em problemas pequenos. Sugerir replicação futura em projetos de disciplina maiores. |
+
+## **13.5 Resumo das Ações Prioritárias**
+
+Para garantir a integridade deste estudo, as seguintes ações são mandatórias:
+
+1.  **Randomização Rigorosa:** Garantir que a divisão dos grupos seja feita por sorteio e não por escolha dos alunos (por exemplo, não deixar eles escolherem onde sentar se isso definir o grupo).
+2.  **Protocolo de *Sanity Check*:** Antes de rodar a estatística, o pesquisador deve abrir aleatoriamente 20% dos repositórios para verificar se o grupo TDD realmente seguiu o ciclo (testes com timestamps anteriores ao código).
+3.  **Transparência na Análise:** Reportar não apenas o *p-valor*, mas também o tamanho do efeito (*Effect Size*), para discutir a relevância prática dos achados, não apenas a significância estatística.
+
+
+---
+
+
