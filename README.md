@@ -19,6 +19,7 @@ EXP-TDD-QUALI-PROD-2025
 | v1.2   | 25/11/2025 | Versão preliminar (Inclusão do Modelo conceitual e hipóteses; Variáveis, fatores, tratamentos e objetos de estudo; Desenho experimental)   |
 | v1.3   | 26/11/2025 | Versão preliminar (Inclusão da População, sujeitos e amostragem; Instrumentação e protocolo operacional; Plano de análise de dados (pré-execução))   |
 | v1.4   | 26/11/2025 | Versão preliminar (Inclusão da Avaliação de validade (ameaças e mitigação))   |
+| v1.5   | 26/11/2025 | Versão Final (Planejamneto de Experimento finalizado)   |
 
 
 ## **1.4 Datas**
@@ -95,7 +96,7 @@ O estudo baseia-se na comparação entre o desenvolvimento *Test-Last* (tradicio
 
 ## **3.1 Objetivo Geral (Template de Escopo)**
 
-O objetivo do experimento foi definido utilizando o template padrão de definição de escopo:
+O objetivo do experimento é definido utilizando o template padrão de definição de escopo:
 
 | Campo | Definição |
 | :--- | :--- |
@@ -185,9 +186,9 @@ A tabela abaixo descreve todas as métricas identificadas no GQM, suas unidades 
 # **5. Stakeholders e Impacto Esperado**
 
 ## **5.1 Stakeholders Principais**
-1.  **Pesquisador (Aluno):** Responsável pelo planejamento, execução e análise.
-2.  **Professor Orientador:** Interessado na integridade metodológica.
-3.  **Participantes (Alunos da disciplina):** Sujeitos do experimento.
+*  **Pesquisador (Aluno):** Responsável pelo planejamento, execução e análise.
+*  **Professor Orientador:** Interessado na integridade metodológica.
+*  **Participantes (Alunos da disciplina):** Sujeitos do experimento.
 
 ## **5.2 Interesses e Expectativas**
 *   **Pesquisador:** Espera coletar dados suficientes para validar as hipóteses e concluir o TCC.
@@ -468,4 +469,184 @@ Para garantir a integridade deste estudo, as seguintes ações são mandatórias
 
 ---
 
+
+# **14. Ética, Privacidade e Conformidade**
+
+## **14.1 Questões Éticas**
+Como o experimento envolve seres humanos (alunos) em um ambiente de avaliação (sala de aula), a principal questão ética é a **coerção**. Os alunos não devem se sentir obrigados a participar sob ameaça de prejuízo em suas notas.
+*   **Mitigação:** A participação no experimento será contabilizada como "atividade complementar" ou "nota de participação". A nota será atribuída pela **presença e entrega**, independentemente da qualidade do código ou do desempenho (produtividade). Alunos que optarem por não participar realizarão uma atividade teórica equivalente (resenha de artigo) para compor a nota.
+
+## **14.2 Consentimento Informado**
+Todos os participantes receberão e deverão assinar (digitalmente) um **Termo de Consentimento Livre e Esclarecido (TCLE)** antes do início da coleta de dados. O termo explicará:
+1.  O objetivo da pesquisa (comparar técnicas de desenvolvimento).
+2.  Que os dados de desempenho (erros, tempo) não influenciarão a nota da disciplina.
+3.  Que a participação é voluntária e pode ser interrompida a qualquer momento sem penalidade.
+
+## **14.3 Privacidade e Proteção de Dados**
+Para garantir a privacidade e evitar constrangimento (ex: exposição de alunos com baixo desempenho):
+*   **Pseudoanonimização:** Os dados serão coletados vinculados a um ID aleatório (ex: `PARTICIPANTE_01`). A tabela de-para (Nome -> ID) ficará sob posse exclusiva do pesquisador responsável e será destruída após a consolidação dos dados.
+*   **Repositórios:** Os repositórios de código no GitHub/GitLab serão privados ou submetidos a uma organização fechada, acessível apenas ao pesquisador.
+*   **Relatórios:** Os resultados serão divulgados apenas de forma agregada (médias, desvios), sem citar indivíduos.
+
+## **14.4 Aprovações Necessárias**
+1.  **Professor Regente da Disciplina:** Aprovação para uso do tempo de aula. (Status: *Pendente*).
+2.  **Comitê de Ética em Pesquisa (CEP):** Necessário submeter o projeto à plataforma Brasil ou comitê interno da universidade, dado que envolve pesquisa com seres humanos. (Status: *Em elaboração*).
+
+---
+
+# **15. Recursos, Infraestrutura e Orçamento**
+
+## **15.1 Recursos Humanos e Papéis**
+*   **Pesquisador Principal (PI):** Responsável pela criação do material, condução do experimento, suporte a dúvidas durante a execução e análise dos dados.
+*   **Professor Orientador:** Responsável pela validação metodológica e supervisão ética.
+*   **Monitor de Laboratório (Opcional):** Apoio técnico para garantir que as máquinas e o ambiente de desenvolvimento estejam funcionais no dia.
+
+## **15.2 Infraestrutura Técnica Necessária**
+O experimento ocorrerá em um laboratório de informática da universidade.
+*   **Hardware:** 30 estações de trabalho (computadores desktop) com acesso à internet.
+*   **Software:**
+    *   Sistema Operacional: Windows ou Linux (padronizado).
+    *   IDE: VSCode (versão estável mais recente) + Extension Pack for Java.
+    *   JDK: Java Development Kit 17+.
+    *   Git: Cliente de linha de comando configurado.
+    *   Navegador: Para acesso ao formulário de coleta e enunciado.
+
+## **15.3 Materiais e Insumos**
+*   **Digital:** Repositório "Template" no GitHub contendo o esqueleto do projeto e a configuração do JUnit.
+*   **Digital:** PDF com a especificação do problema (Kata) e exemplos de input/output.
+*   **Digital:** "Cheatsheet" (Cola) com sintaxe básica do JUnit e comandos Git para nivelar o conhecimento técnico operacional.
+
+## **15.4 Orçamento e Custos Estimados**
+O projeto não possui financiamento externo, operando com recursos próprios da universidade.
+
+| Item | Custo Financeiro Estimado | Fonte de Recurso |
+| :--- | :--- | :--- |
+| Licenças de Software (Java, VSCode) | R$ 0,00 | Open Source / Gratuitas |
+| Uso do Laboratório (3h) | R$ 0,00 | Infraestrutura da Universidade |
+| Horas do Pesquisador (40h) | R$ 0,00 | Dedicação Acadêmica (TCC) |
+| **Total** | **R$ 0,00** | **Recursos Existentes** |
+
+---
+
+# **16. Cronograma, Marcos e Riscos Operacionais**
+
+## **16.1 Macrocronograma**
+
+| Fase | Atividade | Data Estimada | Duração |
+| :--- | :--- | :--- | :--- |
+| **Planejamento** | Elaboração do Plano Experimental e Instrumentos | Semana 1-2 | 10 dias |
+| **Aprovação** | Submissão e aprovação Ética/Professor | Semana 3-4 | 14 dias |
+| **Piloto** | Teste do protocolo com 2 voluntários (fora da amostra) | Semana 5 | 1 dia |
+| **Ajustes** | Refinamento dos instrumentos pós-piloto | Semana 5 | 2 dias |
+| **Execução** | Realização do Experimento (Coleta de Dados) | Semana 6 | **1 dia (Sessão Única)** |
+| **Análise** | Extração de métricas, validação e estatística | Semana 7-8 | 10 dias |
+| **Relatório** | Escrita da discussão e conclusões | Semana 9 | 5 dias |
+
+## **16.2 Dependências Entre Atividades**
+*   A **Execução** depende estritamente da **Aprovação Ética** e da disponibilidade do laboratório.
+*   A **Análise** depende da limpeza dos dados (sanity check) dos códigos submetidos.
+
+## **16.3 Riscos Operacionais e Plano de Contingência**
+
+| Risco | Probabilidade | Impacto | Plano de Contingência |
+| :--- | :--- | :--- | :--- |
+| **Baixo Quórum** | Média | Alto | Realizar o experimento em dia de prova ou entrega de trabalho, onde a presença é mandatória, convertendo a participação em bônus. |
+| **Falha de Internet/GitHub** | Baixa | Crítico | Ter pen-drives preparados com o projeto base e instruir os alunos a salvarem o código localmente (zip) para entrega via e-mail ou rede interna. |
+| **Ambiente Desconfigurado** | Média | Médio | O pesquisador chegará 1 hora antes para testar uma amostra aleatória de 5 máquinas. Ter um script `.bat` ou `.sh` para configuração rápida de variáveis de ambiente (JAVA_HOME). |
+| **Dificuldade Extrema na Tarefa** | Baixa | Alto | Se o piloto indicar que a tarefa é impossível no tempo estipulado, o escopo do problema (Kata) será reduzido (ex: remover requisitos opcionais) antes da execução principal. |
+
+
+---
+
+
+# **17. Governança do Experimento**
+
+## **17.1 Papéis e Responsabilidades Formais**
+A estrutura de governança define quem tem autoridade para tomar decisões críticas durante o ciclo de vida do experimento.
+
+*   **Pesquisador Responsável (PI - Aluno):**
+    *   *Responsabilidade:* Execução operacional, coleta de dados, garantia da integridade do protocolo e análise estatística.
+    *   *Decisão:* Ajustes menores no protocolo (ex: estender o tempo em 10 min se houver falha técnica).
+*   **Professor Orientador/Regente:**
+    *   *Responsabilidade:* Supervisão metodológica e ética.
+    *   *Decisão:* Aprovação final do plano, cancelamento do experimento em caso de violação ética ou risco pedagógico grave.
+*   **Monitor/Apoio Técnico:**
+    *   *Responsabilidade:* Suporte de infraestrutura durante a sessão.
+    *   *Decisão:* Nenhuma (apenas reporta problemas).
+
+## **17.2 Ritos de Acompanhamento**
+Para garantir o alinhamento antes da execução, serão realizados os seguintes checkpoints:
+1.  **Revisão do Plano (Semana 2):** Reunião entre Aluno e Orientador para validar hipóteses e métricas.
+2.  **Revisão do Piloto (Semana 5):** Análise dos resultados do teste piloto para calibrar a dificuldade da tarefa e o tempo necessário.
+3.  **Go/No-Go Meeting (Dia D-1):** Verificação final dos critérios de prontidão (ver seção 20).
+
+## **17.3 Controle de Mudanças**
+Qualquer alteração no protocolo experimental após a aprovação ética deve ser documentada em um **Log de Mudanças**. Alterações estruturais (ex: mudar a tarefa ou as variáveis dependentes) exigem nova validação com o orientador para não invalidar a comparação com dados anteriores ou literatura.
+
+---
+
+# **18. Plano de Documentação e Reprodutibilidade**
+
+A reprodutibilidade é um pilar da ciência. Este plano garante que outro pesquisador possa replicar o estudo no futuro.
+
+## **18.1 Repositórios e Convenções**
+*   **Lab Package (Pacote de Replicação):** Todos os artefatos serão armazenados em um repositório público no GitHub/Zenodo (após a defesa), contendo:
+    *   `/docs`: Plano experimental, TCLE e roteiro.
+    *   `/instrumentation`: Código fonte do projeto base, suíte de testes de aceitação e scripts de análise.
+    *   `/data`: Dados brutos anonimizados (CSV) e logs de tempo.
+*   **Convenção de Nomes:**
+    *   Projetos dos alunos: `exp-tdd-2025-ID_PARTICIPANTE` (onde ID é um código aleatório).
+
+## **18.2 Templates e Artefatos Padrão**
+Serão utilizados templates padronizados para garantir consistência na coleta de dados:
+*   **Template de Log de Esforço:** Planilha Google Sheets bloqueada, permitindo apenas a inserção de "Hora Início" e "Hora Fim".
+*   **Template de Projeto Java:** Estrutura Maven/Gradle pré-configurada com dependências do JUnit, garantindo que os alunos não percam tempo configurando o build.
+
+## **18.3 Plano de Empacotamento**
+Ao final do estudo, será gerado um documento "README" detalhado ("Como replicar este estudo"), contendo:
+1.  Configuração necessária do ambiente (versões de Java/IDE).
+2.  Instruções exatas lidas para os participantes.
+3.  Critérios de correção dos códigos.
+
+---
+
+# **19. Plano de Comunicação**
+
+## **19.1 Públicos e Mensagens-Chave**
+*   **Alunos (Participantes):**
+    *   *Pré:* "Participem de uma atividade prática sobre TDD e Qualidade de Código. Vale horas complementares." (Evitar revelar as hipóteses exatas para não enviesar).
+    *   *Pós:* "Obrigado pela participação. Aqui está um resumo do que aprendemos coletivamente (feedback pedagógico)."
+*   **Professor Regente:**
+    *   *Pré:* "O protocolo está pronto e o impacto na aula será de X minutos."
+
+## **19.2 Canais e Frequência**
+*   **E-mail Institucional / LMS (Canvas/Moodle):** Canal oficial para envio do convite, TCLE e link do repositório.
+*   **Sala de Aula (Presencial):** Briefing inicial e instruções operacionais no dia do experimento.
+
+## **19.3 Pontos de Comunicação Obrigatórios**
+*   **Convite Oficial:** 1 semana antes da execução.
+*   **Lembrete de Preparação:** 2 dias antes (lembrar de trazer notebook se for BYOD, ou confirmar login no laboratório).
+*   **Debriefing:** 1 semana após a execução (apresentação dos resultados gerais para a turma).
+
+---
+
+# **20. Critérios de Prontidão para Execução (Definition of Ready)**
+
+Para evitar falhas no dia da execução, o experimento só será iniciado se o seguinte checklist for atendido.
+
+## **20.1 Checklist de Prontidão**
+
+| Categoria | Item de Verificação | Status |
+| :--- | :--- | :--- |
+| **Ética** | TCLE redigido e aprovado pelo orientador? | ☐ |
+| **Infraestrutura** | O JUnit roda sem erros em todas as máquinas do laboratório? | ☐ |
+| **Infraestrutura** | O repositório template está acessível publicamente? | ☐ |
+| **Instrumentação** | A suíte de testes de aceitação (gabarito) foi validada contra uma solução de referência? | ☐ |
+| **Material** | O documento com a especificação da tarefa (PDF) está finalizado e revisado (sem ambiguidades)? | ☐ |
+| **Pessoas** | O script de instrução inicial (o que falar para os alunos) está escrito? | ☐ |
+| **Piloto** | O teste piloto foi realizado e os problemas críticos foram corrigidos? | ☐ |
+
+## **20.2 Aprovações Finais**
+*   **Validação Técnica:** O Pesquisador Responsável confirma que o ambiente está 100% operacional.
+*   **Validação Pedagógica:** O Professor Regente autoriza o início da atividade na data estipulada.
 
