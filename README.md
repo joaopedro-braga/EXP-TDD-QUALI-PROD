@@ -16,13 +16,14 @@ EXP-TDD-QUALI-PROD-2025
 | ------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | v1.0   | 20/11/2025 | Versão inicial do plano (Identificação Básica, Contexto e Problema)                                                                        |
 | v1.1   | 25/11/2025 | Versão preliminar (Inclusão do Escopo, Objetivo, Stakeholders/Impacto, Riscos de alto nível, Premissas e Critérios de Sucesso)             |
-| v1.2   | 25/11/2025 | Versão preliminar (Inclusão do Modelo conceitual e hipóteses; Variáveis, fatores, tratamentos e objetos de estudo; Desenho experimental)             |
+| v1.2   | 25/11/2025 | Versão preliminar (Inclusão do Modelo conceitual e hipóteses; Variáveis, fatores, tratamentos e objetos de estudo; Desenho experimental)   |
+| v1.3   | 26/11/2025 | Versão preliminar (Inclusão da População, sujeitos e amostragem; Instrumentação e protocolo operacional; Plano de análise de dados (pré-execução))   |
 
 
 ## **1.4 Datas**
 
 * Data de criação: **20/11/2025**
-* Última atualização: **25/11/2025**
+* Última atualização: **26/11/2025**
 
 ## **1.5 Autores**
 
@@ -320,3 +321,95 @@ O experimento buscará ser balanceado, visando ter o mesmo número de observaç�
 *   **Grupos:** 2 Grupos (Entre-Sujeitos).
 *   **Sessões:** 1 Sessão única.
     *   Todos os participantes executarão o experimento simultaneamente no mesmo laboratório para garantir controle sobre variáveis ambientais (tempo disponível, instruções fornecidas, ruído, temperatura).
+
+---
+
+# **10. População, Sujeitos e Amostragem**
+
+## **10.1 População-Alvo**
+A população-alvo deste estudo compreende **desenvolvedores de software novatos** ou em formação acadêmica. Especificamente, busca-se representar estudantes de graduação em cursos de computação que já possuam conhecimentos fundamentais de programação orientada a objetos e testes unitários, mas que ainda não tenham consolidado práticas industriais avançadas.
+
+## **10.2 Critérios de Inclusão**
+Para participar do experimento, o sujeito deve atender aos seguintes critérios:
+1.  Estar regularmente matriculado na disciplina de Engenharia de Software ou correlata.
+2.  Possuir conhecimento prévio da linguagem Java (nível básico a intermediário).
+3.  Ter participado do treinamento de nivelamento sobre JUnit oferecido previamente.
+4.  Assinar o Termo de Consentimento Livre e Esclarecido (TCLE).
+
+## **10.3 Critérios de Exclusão**
+Serão desconsiderados os dados de participantes que:
+1.  Não entregarem o código fonte final compilável (erro de sintaxe impeditivo).
+2.  Não preencherem os logs de tempo ou os questionários de percepção.
+3.  Declararem, no questionário demográfico, nunca ter escrito um teste unitário anteriormente (falta de *skill* mínima para a tarefa).
+
+## **10.4 Tamanho da Amostra e Seleção**
+*   **Tamanho Planejado:** Estima-se um total de **24 a 30 participantes**, divididos igualmente entre os dois grupos (12 a 15 por tratamento). Embora amostras pequenas reduzam o poder estatístico, este número é compatível com o tamanho médio de turmas acadêmicas e suficiente para detectar tamanhos de efeito médios a grandes.
+*   **Método de Seleção:** A amostragem será por **conveniência** (alunos disponíveis na instituição), porém a alocação aos grupos (TDD vs. Tradicional) será **aleatória (randomizada)** para mitigar vieses de seleção.
+
+---
+
+# **11. Instrumentação e Protocolo Operacional**
+
+## **11.1 Instrumentos de Coleta**
+Os seguintes artefatos serão utilizados para garantir a execução e a coleta de dados:
+
+1.  **Questionário de Caracterização:** Formulário online para coletar dados demográficos e nível de experiência em Java e Testes (Variável de Controle).
+2.  **Especificação da Tarefa:** Documento PDF contendo os requisitos funcionais do "Kata de Programação" (ex: Conversor de Números Romanos), com exemplos de entrada e saída.
+3.  **Ambiente de Desenvolvimento (IDE):** VSCode configurado com JDK 17 e biblioteca JUnit 5 pré-instalada.
+4.  **Repositório de Código (Template):** Um repositório Git contendo a estrutura básica do projeto (scaffold) para garantir que todos comecem do mesmo ponto.
+5.  **Planilha de Log de Tempo:** Planilha simples onde o aluno registrará a hora de início e fim (Métrica M11).
+6.  **Questionário Pós-Experimento:** Formulário contendo escalas Likert para avaliar Dificuldade Percebida (M14), Confiança (M16) e Carga Cognitiva (NASA-TLX simplificado - M15).
+7.  **Suíte de Testes de Aceitação (Gabarito):** Conjunto de testes automatizados criados pelo pesquisador, ocultos aos alunos, para medir a Completude Funcional (M4) e o Número de Falhas (M1).
+
+## **11.2 Fluxograma do Experimento**
+
+Abaixo, o fluxo operacional detalhado do experimento, demonstrando a interação entre stakeholders, instrumentos e a geração das métricas.
+
+![Fluxograma do Experimento](https://www.plantuml.com/plantuml/png/XLDDRzn63BthLn3eHGPI84RQj50EZRmVgGkxTknjJxdG4dUNoMYeScOCjqr_ZD53q08z-IVeZvMZbHlNmCANnOgatdjwZtmT8cfCdIl21_OzAdQ0JUHhZh_2xmN04JOVDYh9jpDnel35Sh5Sp1Qv8zgIJjNws-VFNxmi_YYAZ-SKVaaSiBLwUQPCFkR_1n-BaQkevhHcpmhdqYU7mwVXJm62cN8S_bAMyAgepfMo5eLZlrQa43N5fFZEboTuzGoEvulm32webs0ltIaBlE5uy2gp6mKttAEF16NjaXTZhkeGs1lUYhGJQ8rEV31btDcFx1Z9DrjIU9kCZyKFjuPh0WmDdJ7_ZCh3xJMv_6vKSLJ1ugOdg_xjRMQat__nrKh996I-KS2FR52xHmF_uIVF4KPP3N6K0Alvt12h2_IjTFpRv5DhdSlqFe-OJruYWV9c6osFsaapJTMESFG5AskyqTHR3SeC2PB-AnrPIR7bXiMZEoZ8jv0XYuBNKBvDw41sezyTGDoIXtB2gaPv1bGT-npEI6jsX4RfcXIYMKZlV0uXc6PeXhkMDs9yrlXooHfoMkG2tKCULV1Gotxe2Ue1-4WsGP_W3jctlDw_3HVKq1MfWVRKy9hlVMiHLgYqpejsTlMUngHiAgPMSXYB6sfIH9scSlDSPQFOxG0U9N8gdgFevynNrFLYZVBqy31_qbfq-2ImalW_-wlBTDLHD86NudO6c4qSdzemkqNAwcgDfYulKJaRtNeaFliLifuwxzeetVmqKHKiqMtHRklqXUM1D_Xm98FKTXQEmsZAS6lUZYPCB1dZPGKpwNf7DznYIuRqJKRgq6y5Jivc-uzq_mqksQDxvEtzDNA0EVLc7HbMleqS6rzZg780XrzLCCy19vVLZAMlJI7g1atdndEU_Upy4_Rw88xR1wSujrvuP0l6uPymEaCxgxD3ttC_t9b0ikaGfIzU6sVgtBy0)
+
+## **11.3 Procedimento Experimental (Passo a Passo)**
+1.  **Convite:** Os alunos serão convidados na semana anterior e informados sobre o objetivo pedagógico da atividade.
+2.  **Nivelamento:** Uma aula de revisão de 30 minutos sobre JUnit será ministrada.
+3.  **Setup:** No dia do experimento, os alunos acessam as máquinas e fazem login no formulário de coleta.
+4.  **Execução:** Os alunos recebem o link do repositório. Ao iniciar, registram o horário.
+    *   Grupo TDD segue o ciclo *Red-Green-Refactor*.
+    *   Grupo Tradicional codifica livremente, testando ao final.
+5.  **Encerramento:** Ao finalizar a tarefa (ou acabar o tempo limite de 90 minutos), o aluno faz o *commit/push*, registra o horário final e responde ao questionário de percepção.
+
+---
+
+# **12. Plano de Análise de Dados (Pré-execução)**
+
+## **12.1 Tratamento dos Dados**
+Antes da análise estatística, será realizada a limpeza dos dados:
+*   **Sanity Check:** Códigos que não compilam serão descartados ou corrigidos minimamente (apenas imports) se o erro for trivial.
+*   **Normalização:** Métricas de esforço serão convertidas para minutos. Métricas de tamanho (LOC) serão normalizadas para excluir linhas em branco e comentários (*Logical LOC*).
+*   **Outliers:** Valores extremos de tempo (ex: alunos que terminaram em 5 minutos ou não terminaram) serão analisados via *Boxplot* e poderão ser removidos se indicarem falta de engajamento.
+
+## **12.2 Estatística Descritiva**
+Para cada grupo (TDD e Tradicional) e para cada uma das quatro variáveis dependentes (Defeitos, Complexidade, Produtividade, Dificuldade), serão calculadas as medidas de:
+*   **Tendência Central:** Média e Mediana.
+*   **Dispersão:** Desvio Padrão e Variância.
+
+## **12.3 Teste de Hipóteses (Inferência)**
+Para validar as quatro hipóteses definidas na etapa anterior, será seguido o fluxo de decisão abaixo para cada variável dependente:
+
+1.  **Verificação de Normalidade:** Aplicação do teste de **Shapiro-Wilk** nos dados de cada grupo para cada métrica.
+    *   Nível de significância para normalidade: $\alpha = 0.05$.
+
+2.  **Seleção do Teste de Comparação:**
+    *   **Se os dados forem Normais (Paramétricos):** Utilizar o **Teste t de Student para amostras independentes** (unicaudal, pois as hipóteses têm direção).
+    *   **Se os dados NÃO forem Normais (Não-Paramétricos):** Utilizar o teste **Mann-Whitney U** (equivalente não-paramétrico do teste t).
+
+3.  **Aplicação às Hipóteses:**
+
+    *   **H1 (Qualidade Externa):** Teste estatístico sobre a *Densidade de Defeitos*. Espera-se média menor no TDD.
+    *   **H2 (Qualidade Interna):** Teste estatístico sobre a *Complexidade Ciclomática*. Espera-se média menor no TDD.
+    *   **H3 (Produtividade):** Teste estatístico sobre a variável *Produtividade (LOC/h)*. Espera-se média menor no TDD.
+    *   **H4 (Percepção):** Teste estatístico sobre a variável ordinal *Dificuldade Percebida*. Como é uma escala Likert, o teste preferencial será o **Mann-Whitney U**.
+
+4.  **Decisão:**
+    *   Se o **p-valor < 0.05**, rejeita-se a Hipótese Nula (H0) correspondente, indicando diferença estatisticamente significativa.
+
+## **12.4 Análise Qualitativa**
+As respostas dos questionários abertos sobre a dificuldade da técnica serão analisadas por meio de codificação temática para identificar padrões (ex: "dificuldade em pensar no teste primeiro", "sensação de segurança ao refatorar"), servindo para explicar os resultados quantitativos de H4.
